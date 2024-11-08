@@ -20,7 +20,6 @@ shopRouter.get('/orders', isAuthenticated, shopController.getOrders);
 shopRouter.get('/shipment', isAuthenticated, shopController.getShipment);
 shopRouter.post('/shipment', isAuthenticated, shopController.postShipment);
 
-// Nouvelle route pour la page Santé
-shopRouter.get('/sante', shopController.getSante);
+shopRouter.get('/sante', isAuthenticated, shopController.getSante);
 
 module.exports = shopRouter;
