@@ -1,23 +1,22 @@
-<div class="uk-grid" uk-grid>
-  <div class="uk-width-1-1">
-    <div class="action-bar">
-      <div>
-        <h3>Account</h3>
-      </div>
-      <div>
-        <a href="/reset-password" class="uk-button uk-button-default uk-text-capitalize">
-          <span uk-icon="icon: pencil; ratio: 1.1"></span>
-          Reset Password
-        </a>
-      </div>
+<div class="space-y-6">
+  <div class="flex justify-between items-center">
+    <h3 class="text-lg font-semibold">Compte</h3>
+    <a href="/reset-password" class="text-gray-700 hover:text-blue-600 flex items-center space-x-2">
+      <i class="fas fa-pencil-alt"></i>
+      <span>Réinitialiser le Mot de Passe</span>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Email</label>
+      <input type="text" name="email" id="email" value="<%= account.email %>" 
+             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" disabled>
     </div>
-  </div>
-  <div class="uk-width-1-2@s" style="margin-top: 0px;">
-    <div class="ui-text-field">Email</div>
-    <input name="email" id="email" class="ui-input uk-input uk-form-medium" type="text" value="<%= account.email %>" disabled>
-  </div>
-  <div class="uk-width-1-2@s" style="margin-top: 0px;">
-    <div class="ui-text-field">Password</div>
-    <input name="password" id="password" class="ui-input uk-input uk-form-medium" type="password" value="**********" disabled>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Mot de Passe</label>
+      <input type="password" name="password" id="password" value="**********" 
+             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" disabled>
+    </div>
   </div>
 </div>

@@ -1,47 +1,52 @@
-<div class="uk-grid" style="margin-top: 75px;" uk-grid>
-  <div class="uk-width-1-1">
-    <div class="action-bar">
-      <div>
-        <h3>Shipment Address</h3>
-      </div>
-      <div>
-        <a href="/shipment" class="uk-button uk-button-default uk-text-capitalize">
-          <span uk-icon="icon: pencil; ratio: 1.1"></span>
-          Edit
-        </a>
-      </div>
+<div class="mt-20 space-y-6">
+  <div class="flex justify-between items-center">
+    <h3 class="text-lg font-semibold">Adresse de Livraison</h3>
+    <a href="/shipment" class="text-gray-700 hover:text-blue-600 flex items-center space-x-2">
+      <i class="fas fa-pencil-alt"></i>
+      <span>Modifier</span>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Prénom</label>
+      <input type="text" name="firstname" id="firstname" value="<%= shipmentAddress.firstname %>" 
+             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" disabled>
     </div>
-  </div>
-  <div class="uk-width-1-2@s" style="margin-top: 0px;">
-    <div class="ui-text-field">First Name</div>
-    <input name="firstname" id="firstname" class="ui-input uk-input uk-form-medium" type="text" value="<%= shipmentAddress.firstname %>" disabled>
-  </div>
-  <div class="uk-width-1-2@s" style="margin-top: 0px;">
-    <div class="ui-text-field">Last Name</div>
-    <input name="lastname" id="lastname" class="ui-input uk-input uk-form-medium" type="text" value="<%= shipmentAddress.lastname %>" disabled>
-  </div>
-  <div class="uk-width-1-2@s">
-    <div class="ui-text-field">Phone / Mobile</div>
-    <input name="phone" id="phone" class="ui-input uk-input uk-form-medium" type="number" value="<%= shipmentAddress.phone %>" disabled>
-  </div>
-  <div class="uk-width-1-1@s">
-    <div class="ui-text-field">Address</div>
-    <input name="address" id="address" class="ui-input uk-input uk-form-medium" type="text" value="<%= shipmentAddress.address %>" disabled>
-  </div>
-  <div class="uk-width-1-2@s">
-    <div class="ui-text-field">Zip / Postal Code</div>
-    <input name="postalcode" id="postalcode" class="ui-input uk-input uk-form-medium" type="text" value="<%= shipmentAddress.postalcode %>" disabled>
-  </div>
-  <div class="uk-width-1-2@s">
-    <div class="ui-text-field">City</div>
-    <input name="city" id="city" class="ui-input uk-input uk-form-medium" type="text" value="<%= shipmentAddress.city %>" disabled>
-  </div>
-  <div class="uk-width-1-2@s">
-    <div class="ui-text-field">State</div>
-    <input name="state" id="state" class="ui-input uk-input uk-form-medium" type="text" value="<%= shipmentAddress.state %>" disabled>
-  </div>
-  <div class="uk-width-1-2@s">
-    <div class="ui-text-field">Country</div>
-    <input name="country" id="country" class="ui-input uk-input uk-form-medium" type="text" value="<%= shipmentAddress.country %>" disabled>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Nom</label>
+      <input type="text" name="lastname" id="lastname" value="<%= shipmentAddress.lastname %>" 
+             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" disabled>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Téléphone / Mobile</label>
+      <input type="number" name="phone" id="phone" value="<%= shipmentAddress.phone %>" 
+             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" disabled>
+    </div>
+    <div class="md:col-span-2">
+      <label class="block text-sm font-medium text-gray-700">Adresse</label>
+      <input type="text" name="address" id="address" value="<%= shipmentAddress.address %>" 
+             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" disabled>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Code Postal</label>
+      <input type="text" name="postalcode" id="postalcode" value="<%= shipmentAddress.postalcode %>" 
+             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" disabled>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Ville</label>
+      <input type="text" name="city" id="city" value="<%= shipmentAddress.city %>" 
+             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" disabled>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">État / Région</label>
+      <input type="text" name="state" id="state" value="<%= shipmentAddress.state %>" 
+             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" disabled>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Pays</label>
+      <input type="text" name="country" id="country" value="<%= shipmentAddress.country %>" 
+             class="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md" disabled>
+    </div>
   </div>
 </div>

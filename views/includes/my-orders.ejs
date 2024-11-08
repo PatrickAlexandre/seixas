@@ -1,29 +1,29 @@
-<div class="uk-grid" style="margin-top: 75px;" uk-grid>
-  <div class="uk-width-1-1">
-    <h3>My Orders</h3>
-  </div>
-  <div class="uk-width-1-1@s" style="margin-top: 0px;">
-    <table class="uk-table ui-table uk-table-justify uk-table-divider">
-      <thead>
+<div class="mt-20 space-y-6">
+  <h3 class="text-lg font-semibold">Mes Commandes</h3>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-300 rounded-lg">
+      <thead class="bg-gray-200">
         <tr>
-          <th class="uk-width-small">Date</th>
-          <th class="uk-width-large">Order Id</th>
-          <th>Products</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Date</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Numéro de Commande</th>
+          <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Produits</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="divide-y divide-gray-200">
         <% if (orders.length <= 0) { %>
-          <tr colspan="3">
-            <td>No orders found</td>
+          <tr>
+            <td colspan="3" class="px-4 py-2 text-center text-sm text-gray-500">Aucune commande trouvée</td>
           </tr>
         <% } %>
         <% orders.forEach(order => { %>
           <tr>
-            <td><%= order.date %></td>
-            <td><%= order.id %></td>
-            <td>
+            <td class="px-4 py-2 text-sm text-gray-700"><%= order.date %></td>
+            <td class="px-4 py-2 text-sm text-gray-700"><%= order.id %></td>
+            <td class="px-4 py-2 text-sm text-gray-700">
               <% order.products.forEach(p => { %>
-                <li><%= p.product.title %> (<%= p.quantity %>)</li>
+                <ul class="list-disc list-inside">
+                  <li><%= p.product.title %> (<%= p.quantity %>)</li>
+                </ul>
               <% }); %>
             </td>
           </tr>

@@ -1,0 +1,55 @@
+<!-- Barre de Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <a class="navbar-brand font-weight-bold text-primary" href="/">Patou</a>
+  <!-- Menu de Navigation pour Mobile -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Liens Principaux de Navigation -->
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link <%= path === '/' ? 'active font-weight-bold' : '' %>" href="/">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= path === '/about' ? 'active font-weight-bold' : '' %>" href="/about">À Propos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= path === '/contact' ? 'active font-weight-bold' : '' %>" href="/contact">Contact</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <% if (!isAuthenticated) { %>
+        <li class="nav-item">
+          <a class="nav-link <%= path === '/signup' ? 'active font-weight-bold' : '' %>" href="/signup">S'inscrire</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= path === '/login' ? 'active font-weight-bold' : '' %>" href="/login">Connexion</a>
+        </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link <%= path === '/mypage' ? 'active font-weight-bold' : '' %>" href="/mypage">Mon Espace</a>
+        </li>
+        <% if (isAdmin) { %>
+          <li class="nav-item">
+            <a class="nav-link <%= path === '/admin/products' ? 'active font-weight-bold' : '' %>" href="/admin/products">Gérer les Produits</a>
+          </li>
+        <% } %>
+        <li class="nav-item">
+          <form action="/logout" method="post" class="form-inline">
+            <button type="submit" class="btn btn-link nav-link text-danger">Déconnexion</button>
+          </form>
+        </li>
+        <li class="nav-item">
+          <a href="/cart" class="nav-link" title="Voir les articles du panier">
+            <i class="fas fa-shopping-cart"></i> <!-- Icône de Panier Font Awesome -->
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</nav>
+
+<!-- Inclure Bootstrap JS et jQuery pour la fonctionnalité -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
