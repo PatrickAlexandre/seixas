@@ -1,38 +1,36 @@
-<%- include('../includes/head.ejs') %>
-  </head>
-<script>
-  function onSubmit(token) {
-    document.getElementById("signup-form").submit();
-  }
-</script>
+<%- include('../includes/Head.ejs') %>
+</head>
 <body>
-  <%- include('../includes/navigation.ejs') %>
-  <div class="uk-section uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
-    <div class="uk-container">
+  <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="container mx-auto px-4">
       <% if (errorMessage) { %>
-        <div class="uk-alert-danger" uk-alert>
-          <a class="uk-alert-close" uk-close></a>
-          <p><%= errorMessage %></p>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+          <span class="block sm:inline"><%= errorMessage %></span>
+          <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <svg class="fill-current h-6 w-6 text-red-500" role="button" viewBox="0 0 20 20">
+              <path d="M14.348 14.849a1 1 0 01-.707-.293l-4.248-4.248-4.248 4.248a1 1 0 01-1.414-1.414l4.248-4.248-4.248-4.248a1 1 0 011.414-1.414l4.248 4.248 4.248-4.248a1 1 0 111.414 1.414l-4.248 4.248 4.248 4.248a1 1 0 01-.707 1.707z"/>
+            </svg>
+          </span>
         </div>
       <% } %>
-      <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
-        <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body">
-          <h3 class="uk-text-center ui-card-title">Sign-Up</h3>
+      <div class="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-6 py-8">
+          <h3 class="text-center text-2xl font-semibold text-gray-700">Sign-Up</h3>
           <form id="signup-form" action="/signup" method="POST" novalidate>
-            <div class="uk-margin">
-              <div class="ui-text-field">Email</div>
-              <input name="email" id="email" class="ui-input uk-input uk-form-medium" type="text" value="<%= oldInput.email %>">
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+              <input name="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value="<%= oldInput.email %>">
             </div>
-            <div class="uk-margin">
-              <div class="ui-text-field">Password</div>
-              <input name="password" id="password" class="ui-input uk-input uk-form-medium" type="password" value="<%= oldInput.password %>">
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+              <input name="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" value="<%= oldInput.password %>">
             </div>
-            <div class="uk-margin">
-              <div class="ui-text-field">Confirm Password</div>
-              <input name="confirmPassword" id="confirmPassword" class="ui-input uk-input uk-form-medium" type="password" value="<%= oldInput.confirmPassword %>">
+            <div class="mb-6">
+              <label class="block text-gray-700 text-sm font-bold mb-2">Confirm Password</label>
+              <input name="confirmPassword" id="confirmPassword" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" value="<%= oldInput.confirmPassword %>">
             </div>
-            <div class="uk-margin uk-text-center">
-              <button class="g-recaptcha uk-button uk-button-primary uk-text-capitalize" type="submit" data-sitekey="<%= recaptchaSiteKey %>" data-callback="onSubmit" data-action="submit">Sign Up</button>
+            <div class="text-center">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Sign Up</button>
             </div>
           </form>
         </div>

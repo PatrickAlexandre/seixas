@@ -12,7 +12,6 @@ const getLogin = (req, res) => {
       email: '',
       password: '',
     },
-    recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
     validationErrors: [],
   });
 };
@@ -28,7 +27,6 @@ const getSignup = (req, res) => {
       password: '',
       confirmPassword: '',
     },
-    recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
     validationErrors: [],
   });
 };
@@ -45,7 +43,6 @@ const postLogin = (req, res, next) => {
         email,
         password,
       },
-      recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
       validationErrors: errors.array(),
     });
   }
@@ -54,7 +51,7 @@ const postLogin = (req, res, next) => {
       if (match) {
         req.session.isLoggedIn = true;
         req.session.user = user;
-        return req.session.save((err, r) => {
+        return req.session.save((err) => {
           if (err) {
             console.log(err);
           }
@@ -69,7 +66,6 @@ const postLogin = (req, res, next) => {
           email,
           password,
         },
-        recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
         validationErrors: [],
       });
     })
@@ -88,7 +84,6 @@ const postSignup = (req, res, next) => {
       pageTitle: 'Sign Up',
       errorMessage: errors.array()[0].msg,
       oldInput: { email, password, confirmPassword },
-      recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
       validationErrors: errors.array(),
     });
   }
